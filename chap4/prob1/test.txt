@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    FILE *fp;
+    int ch;
+
+    if (argc < 2) {
+        // 인수가 없는 경우 표준 입력 사용
+        while ((ch = getchar()) != EOF) {
+            putchar(ch);
+        }
+    } else {
+        // 파일을 차례대로 출력
+        for (int i = 1; i < argc; i++) {
+            fp = fopen(argv[i], "r");
+            if (fp == NULL) {
+                perror(argv[i]);   // 파일 열기 실패 시 오류 메시지
+                continue;
+            }
+            while ((ch = fgetc(fp)) != EOF) {
+                putchar(ch);
+            }
+            fclose(fp);
+        }
+    }
+    return 0;
+}
+
