@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+hello world
+=======
+hello world!~
+
+>>>>>>> a2dasfgeaceadawe123
